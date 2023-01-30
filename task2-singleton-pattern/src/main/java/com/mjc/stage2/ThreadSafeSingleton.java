@@ -2,18 +2,18 @@ package com.mjc.stage2;
 
 public class ThreadSafeSingleton {
 
-    private static volatile ThreadSafeSingleton safeSingleton;
+    private static volatile ThreadSafeSingleton instance;
 
     private ThreadSafeSingleton() {
     }
 
     public static ThreadSafeSingleton getInstance() {
-        if (safeSingleton == null) {
+        if (instance == null) {
             synchronized (ThreadSafeSingleton.class) {
-                safeSingleton = new ThreadSafeSingleton();
+                instance = new ThreadSafeSingleton();
             }
         }
-        return safeSingleton;
+        return instance;
     }
 
     // Write your code here!
